@@ -1,2 +1,0 @@
-# siit-homeworks
-Javascript homeworks
