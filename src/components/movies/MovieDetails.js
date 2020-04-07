@@ -12,17 +12,35 @@ function MovieDetails() {
 
         console.log(movie);
     }
-    
-    useEffect(() => { 
-        getMovieById(movieId); 
+
+    useEffect(() => {
+        getMovieById(movieId);
     }, [movieId]);
 
-    if(movie) {
+    if (movie) {
         console.log(movie);
         return (
             <>
-                <h1>{ movie.Title }</h1>
-                <h5>Year: { movie.Year }</h5>
+                <h1 className="text-white bg-dark">
+                    <span> {movie.Title} ({movie.Year}) </span>
+                    <span style={{ float: "right" }}> <span style={{ color: "yellow" }}>&#9733;</span> {movie.imdbRating} </span>
+                </h1>
+                <p className="text-white bg-dark">
+                    {movie.Runtime} | {movie.Genre} | {movie.Released}
+
+                </p>
+                <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+                    <img src={movie.Poster}></img>
+                </p>
+                <p>
+                    {movie.Plot}
+                </p>
+                <p>
+                    <span style={{ fontWeight: 'bold' }}>Director:</span> {movie.Director} <br />
+                    <span style={{ fontWeight: 'bold' }}>Writers:</span> {movie.Writer} <br />
+                    <span style={{ fontWeight: 'bold' }}>Actors:</span> {movie.Actors}
+                </p>
+
             </>
         );
     } else {
@@ -31,3 +49,5 @@ function MovieDetails() {
 }
 
 export default MovieDetails;
+
+
